@@ -57,5 +57,3 @@ Desktop.ini
 *.jpeg
 *.gif
 *.webp
-*.svg
-!public/*.svg # 允許放在 public 中的 SVG
