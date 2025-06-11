@@ -1,0 +1,61 @@
+# Node
+node_modules/
+.env*
+.next/
+out/
+dist/
+coverage/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS
+.DS_Store
+
+# 文件與圖片（設計稿 / 輸出檔）
+*.pdf
+*.ai
+*.psd
+*.sketch
+*.fig
+*.xd
+*.key
+*.zip
+*.rar
+*.tar.gz
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+
+# 圖片輸出備份
+design_exports/
+screenshots/
+exported/
+mockups/
+
+# 作業系統臨時檔
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# 編輯器設定
+.vscode/
+.idea/
+*.sw?
+
+# 不小心放進 repo 的私密圖檔
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+!public/*.svg # 允許放在 public 中的 SVG
