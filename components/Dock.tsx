@@ -13,14 +13,23 @@ import {
   TvIcon,
   BookOpenIcon,
   BuildingStorefrontIcon,
-  PaintBrushIcon
+  PaintBrushIcon,
+  PhoneIcon,
+  EnvelopeIcon
 } from '@heroicons/react/24/solid'
+import Finder from './Finder'
 
-const Dock: React.FC = () => {
+interface DockProps {
+  onControlCenterToggle?: () => void;
+}
+
+const Dock: React.FC<DockProps> = ({ onControlCenterToggle }) => {
   const [isMobile, setIsMobile] = useState(false)
   const [isClient, setIsClient] = useState(false)
+  const [finderOpen, setFinderOpen] = useState(false)
+  const [clickedIcon, setClickedIcon] = useState<string | null>(null)
 
-  // 檢測是否為手機設備
+  // 檢測設備類型
   useEffect(() => {
     setIsClient(true)
     const checkMobile = () => {
@@ -33,7 +42,24 @@ const Dock: React.FC = () => {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // 所有圖標 - 使用符合語意的填充風格圖標
+  // 處理圖標點擊 - 優化觸發邏輯
+  const handleIconClick = (name: string) => {
+    setClickedIcon(name)
+    
+    // 立即處理點擊效果
+    if (name === 'Finder') {
+      setFinderOpen(true)
+    } else if (name === 'Settings') {
+      onControlCenterToggle?.()
+    } else {
+      console.log(`Clicked on ${name}`)
+    }
+    
+    // 清除點擊狀態
+    setTimeout(() => setClickedIcon(null), 200)
+  }
+
+  // 所有圖標
   const allIcons = [
     { Icon: FolderIcon, name: 'Finder' },
     { Icon: MusicalNoteIcon, name: 'Music' },
@@ -48,55 +74,66 @@ const Dock: React.FC = () => {
     { Icon: BuildingStorefrontIcon, name: 'App Store' },
     { Icon: PaintBrushIcon, name: 'Pixelmator Pro' },
     { Icon: Cog6ToothIcon, name: 'Settings' },
+    { Icon: PhoneIcon, name: 'Phone' },
+    { Icon: EnvelopeIcon, name: 'Email' },
   ]
 
-  // 手機版只顯示前4個，桌面版顯示所有
-  const dockIcons = isMobile ? allIcons.slice(0, 4) : allIcons
+  // 手機版顯示前4個核心應用（與桌面版前四個一致），桌面版顯示所有
+  const dockIcons = isMobile 
+    ? [
+        { Icon: FolderIcon, name: 'Finder' },
+        { Icon: MusicalNoteIcon, name: 'Music' },
+        { Icon: CameraIcon, name: 'Camera' },
+        { Icon: DocumentTextIcon, name: 'Notes' },
+      ]
+    : allIcons
 
   // 避免服務器端渲染不一致
   if (!isClient) {
     return null
   }
 
-  // 臨時調試信息
-  console.log('Dock Debug:', {
-    isMobile,
-    windowWidth: typeof window !== 'undefined' ? window.innerWidth : 'undefined',
-    dockIconsLength: dockIcons.length,
-    shouldShowFour: isMobile,
-    actuallyShowingFour: dockIcons.length === 4
-  })
-
   return (
-    <div className="fixed bottom-4 w-full flex justify-center z-50">
-      <Transition
-        appear={true}
-        show={true}
-        enter="transition-all duration-500 ease-out delay-300"
-        enterFrom="opacity-0 scale-95 translate-y-8"
-        enterTo="opacity-100 scale-100 translate-y-0"
-      >
-        <div className="flex justify-center items-center gap-3 md:gap-4 py-4 px-6 cfz-liquid-glass-rect">
-          {dockIcons.map(({ Icon, name }) => (
-            <button
-              key={name}
-              className="group relative flex-shrink-0"
-              title={name}
-            >
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#ffffff15] rounded-xl hover:scale-110 transition-all duration-200 drop-shadow-md relative overflow-hidden flex items-center justify-center">
-                {/* 使用填充風格圖標 */}
-                <Icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
-              </div>
-              
-              {/* Tooltip */}
-              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-[#000000cc] text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
-                {name}
-              </div>
-            </button>
-          ))}
-        </div>
-      </Transition>
-    </div>
+    <>
+      <div className={`fixed w-full flex justify-center z-50 ${isMobile ? 'bottom-2' : 'bottom-4'}`}>
+        <Transition
+          appear={true}
+          show={true}
+          enter="transition-all duration-500 ease-out delay-300"
+          enterFrom="opacity-0 scale-95 translate-y-8"
+          enterTo="opacity-100 scale-100 translate-y-0"
+        >
+          <div className="glass-dock-container flex justify-center items-center gap-2 sm:gap-2 lg:gap-3 py-2 sm:py-3 px-6 sm:px-5 rounded-2xl sm:rounded-3xl">
+            {dockIcons.map(({ Icon, name }) => (
+              <button
+                key={name}
+                className={`group relative flex-shrink-0 glass-dock-icon transition-all duration-200 ${
+                  clickedIcon === name ? 'scale-90' : 'scale-100 hover:scale-110'
+                }`}
+                title={name}
+                onClick={() => handleIconClick(name)}
+              >
+                <div className="large-glass-icon w-12 h-12 lg:w-14 lg:h-14 rounded-2xl relative overflow-hidden flex items-center justify-center">
+                  {/* 圖標 */}
+                  <Icon className="w-7 h-7 lg:w-8 lg:h-8 text-white relative z-20 drop-shadow-2xl" />
+                </div>
+                
+                {/* Tooltip */}
+                <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 px-3 py-1.5 bg-black/80 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none backdrop-blur-sm">
+                  {name}
+                </div>
+              </button>
+            ))}
+          </div>
+        </Transition>
+      </div>
+
+      {/* Finder 組件 */}
+      <Finder 
+        isOpen={finderOpen} 
+        onClose={() => setFinderOpen(false)} 
+      />
+    </>
   )
 }
 

@@ -10,6 +10,7 @@ import {
   CalculatorIcon,
   XMarkIcon
 } from '@heroicons/react/24/outline'
+import Calculator from './Calculator'
 
 interface ControlCenterProps {
   isOpen: boolean;
@@ -23,15 +24,16 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
   const [bluetoothEnabled, setBluetoothEnabled] = useState(true)
   const [airdropEnabled, setAirdropEnabled] = useState(false)
   const [focusMode, setFocusMode] = useState(false)
+  const [calculatorOpen, setCalculatorOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [isClient, setIsClient] = useState(false)
   const controlCenterRef = useRef<HTMLDivElement>(null);
 
-  // 檢測是否為手機設備
+  // 檢測是否為手機設備與客戶端
   useEffect(() => {
     setIsClient(true)
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+      setIsMobile(window.innerWidth < 768) // 手機版斷點
     }
     
     checkMobile()
@@ -69,11 +71,19 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
   const toggleAirdrop = () => setAirdropEnabled(!airdropEnabled);
   const toggleFocus = () => setFocusMode(!focusMode);
 
+  // 計算機控制
+  const openCalculator = () => {
+    setCalculatorOpen(true);
+  };
+
+  const closeCalculator = () => {
+    setCalculatorOpen(false);
+  };
+
   // 亮度控制
   const handleBrightnessChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);
     setBrightness(value);
-    // 實際應用亮度效果到頁面
     document.documentElement.style.filter = `brightness(${value}%)`;
   };
 
@@ -83,6 +93,11 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
     setVolume(value);
   };
 
+  // 防止控制中心內部點擊關閉
+  const handleControlCenterClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   // 手機版關閉按鈕點擊處理
   const handleCloseClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -90,17 +105,12 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
     onClose();
   };
 
-  // 防止控制中心內部點擊關閉
-  const handleControlCenterClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
-
   // 避免服務器端渲染不一致
   if (!isClient) {
     return null;
   }
 
-  // 手機版直接顯示，桌面版使用動畫
+  // 手機版居中顯示
   if (isMobile) {
     return (
       <>        
@@ -121,31 +131,31 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
                 {/* Wi-Fi */}
                 <button 
                   onClick={toggleWifi}
-                  className={`${wifiEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button mobile-button`}
+                  className={`${wifiEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button mobile-button transition-all duration-200`}
                 >
                   <div className={`${wifiEnabled ? 'bg-white/30' : 'bg-gray-500'} rounded-full w-10 h-10 flex items-center justify-center mb-1.5`}>
                     <WifiIcon className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-white text-xs">Wi-Fi</span>
+                  <span className="text-white text-xs font-medium">Wi-Fi</span>
                 </button>
                 
                 {/* 藍牙 */}
                 <button 
                   onClick={toggleBluetooth}
-                  className={`${bluetoothEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button mobile-button`}
+                  className={`${bluetoothEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button mobile-button transition-all duration-200`}
                 >
                   <div className={`${bluetoothEnabled ? 'bg-white/30' : 'bg-gray-500'} rounded-full w-10 h-10 flex items-center justify-center mb-1.5`}>
                     <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M6 8L18 16L12 22V2L18 8L6 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <span className="text-white text-xs">Bluetooth</span>
+                  <span className="text-white text-xs font-medium">Bluetooth</span>
                 </button>
                 
                 {/* Airdrop */}
                 <button 
                   onClick={toggleAirdrop}
-                  className={`${airdropEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button mobile-button`}
+                  className={`${airdropEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button mobile-button transition-all duration-200`}
                 >
                   <div className={`${airdropEnabled ? 'bg-white/30' : 'bg-gray-500'} rounded-full w-10 h-10 flex items-center justify-center mb-1.5`}>
                     <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -153,18 +163,18 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
                       <path d="M17.5 15.5c.83-2 1.5-3.5 1.5-5.5a7 7 0 0 0-7-7c-2 0-3.5.68-5.5 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <span className="text-white text-xs">Airdrop</span>
+                  <span className="text-white text-xs font-medium">Airdrop</span>
                 </button>
                 
                 {/* 專注模式 */}
                 <button 
                   onClick={toggleFocus}
-                  className={`${focusMode ? 'bg-purple-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button mobile-button`}
+                  className={`${focusMode ? 'bg-purple-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button mobile-button transition-all duration-200`}
                 >
                   <div className={`${focusMode ? 'bg-white/30' : 'bg-gray-500'} rounded-full w-10 h-10 flex items-center justify-center mb-1.5`}>
                     <MoonIcon className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-white text-xs">Focus</span>
+                  <span className="text-white text-xs font-medium">Focus</span>
                 </button>
               </div>
 
@@ -172,7 +182,7 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
               <div className="cfz-liquid-glass-card rounded-xl px-4 py-3 mb-4">
                 <div className="flex items-center text-white mb-2">
                   <span className="text-sm font-medium">Display</span>
-                  <span className="text-xs text-white/70 ml-auto">{brightness}%</span>
+                  <span className="text-xs text-white/70 ml-auto font-semibold">{brightness}%</span>
                 </div>
                 <div className="flex items-center">
                   <SunIcon className="w-4 h-4 text-white mr-3 opacity-60" />
@@ -202,7 +212,7 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
               <div className="cfz-liquid-glass-card rounded-xl px-4 py-3 mb-4">
                 <div className="flex items-center text-white mb-2">
                   <span className="text-sm font-medium">Sound</span>
-                  <span className="text-xs text-white/70 ml-auto">{volume}%</span>
+                  <span className="text-xs text-white/70 ml-auto font-semibold">{volume}%</span>
                 </div>
                 <div className="flex items-center">
                   <SpeakerWaveIcon className="w-4 h-4 text-white mr-3 opacity-60" />
@@ -231,26 +241,29 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
 
               {/* 底部控制按鈕 */}
               <div className="grid grid-cols-4 gap-3 mb-3">
-                <div className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto">
+                <button className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto ios-button">
                   <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                </div>
-                <div className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto">
+                </button>
+                <button 
+                  onClick={openCalculator}
+                  className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto ios-button"
+                >
                   <CalculatorIcon className="w-5 h-5 text-white" />
-                </div>
-                <div className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto">
+                </button>
+                <button className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto ios-button">
                   <ClockIcon className="w-5 h-5 text-white" />
-                </div>
-                <div className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto">
+                </button>
+                <button className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto ios-button">
                   <CameraIcon className="w-5 h-5 text-white" />
-                </div>
+                </button>
               </div>
               
               {/* 編輯控制按鈕 */}
               <div className="text-center">
-                <span className="text-white/80 text-xs">Edit Controls</span>
+                <span className="text-white/80 text-xs font-medium">Edit Controls</span>
               </div>
             </div>
 
@@ -263,11 +276,17 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
         )}
+
+        {/* 計算機組件 */}
+        <Calculator 
+          isOpen={calculatorOpen} 
+          onClose={closeCalculator} 
+        />
       </>
     )
   }
 
-  // 桌面版使用動畫
+  // 桌面版右上角顯示
   return (
     <>
       <Transition
@@ -289,31 +308,31 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
               {/* Wi-Fi */}
               <button 
                 onClick={toggleWifi}
-                className={`${wifiEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button`}
+                className={`${wifiEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button transition-all duration-200`}
               >
                 <div className={`${wifiEnabled ? 'bg-white/30' : 'bg-gray-500'} rounded-full w-10 h-10 flex items-center justify-center mb-1.5`}>
                   <WifiIcon className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-white text-xs">Wi-Fi</span>
+                <span className="text-white text-xs font-medium">Wi-Fi</span>
               </button>
               
               {/* 藍牙 */}
-              <button
+              <button 
                 onClick={toggleBluetooth}
-                className={`${bluetoothEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button`}
+                className={`${bluetoothEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button transition-all duration-200`}
               >
                 <div className={`${bluetoothEnabled ? 'bg-white/30' : 'bg-gray-500'} rounded-full w-10 h-10 flex items-center justify-center mb-1.5`}>
                   <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 8L18 16L12 22V2L18 8L6 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <span className="text-white text-xs">Bluetooth</span>
+                <span className="text-white text-xs font-medium">Bluetooth</span>
               </button>
-            
+              
               {/* Airdrop */}
-              <button
+              <button 
                 onClick={toggleAirdrop}
-                className={`${airdropEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button`}
+                className={`${airdropEnabled ? 'bg-blue-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button transition-all duration-200`}
               >
                 <div className={`${airdropEnabled ? 'bg-white/30' : 'bg-gray-500'} rounded-full w-10 h-10 flex items-center justify-center mb-1.5`}>
                   <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -321,18 +340,18 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
                     <path d="M17.5 15.5c.83-2 1.5-3.5 1.5-5.5a7 7 0 0 0-7-7c-2 0-3.5.68-5.5 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <span className="text-white text-xs">Airdrop</span>
+                <span className="text-white text-xs font-medium">Airdrop</span>
               </button>
-            
+              
               {/* 專注模式 */}
-              <button
+              <button 
                 onClick={toggleFocus}
-                className={`${focusMode ? 'bg-purple-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button`}
+                className={`${focusMode ? 'bg-purple-500' : 'bg-white/10'} rounded-xl p-3 flex flex-col items-center justify-center ios-button transition-all duration-200`}
               >
                 <div className={`${focusMode ? 'bg-white/30' : 'bg-gray-500'} rounded-full w-10 h-10 flex items-center justify-center mb-1.5`}>
                   <MoonIcon className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-white text-xs">Focus</span>
+                <span className="text-white text-xs font-medium">Focus</span>
               </button>
             </div>
 
@@ -340,7 +359,7 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
             <div className="cfz-liquid-glass-card rounded-xl px-4 py-3 mb-4">
               <div className="flex items-center text-white mb-2">
                 <span className="text-sm font-medium">Display</span>
-                <span className="text-xs text-white/70 ml-auto">{brightness}%</span>
+                <span className="text-xs text-white/70 ml-auto font-semibold">{brightness}%</span>
               </div>
               <div className="flex items-center">
                 <SunIcon className="w-4 h-4 text-white mr-3 opacity-60" />
@@ -370,7 +389,7 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
             <div className="cfz-liquid-glass-card rounded-xl px-4 py-3 mb-4">
               <div className="flex items-center text-white mb-2">
                 <span className="text-sm font-medium">Sound</span>
-                <span className="text-xs text-white/70 ml-auto">{volume}%</span>
+                <span className="text-xs text-white/70 ml-auto font-semibold">{volume}%</span>
               </div>
               <div className="flex items-center">
                 <SpeakerWaveIcon className="w-4 h-4 text-white mr-3 opacity-60" />
@@ -399,32 +418,41 @@ const ControlCenter: React.FC<ControlCenterProps> = ({ isOpen, onClose }) => {
 
             {/* 底部控制按鈕 */}
             <div className="grid grid-cols-4 gap-3 mb-3">
-              <div className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto">
+              <button className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto ios-button">
                 <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </div>
-              <div className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto">
+              </button>
+              <button 
+                onClick={openCalculator}
+                className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto ios-button"
+              >
                 <CalculatorIcon className="w-5 h-5 text-white" />
-              </div>
-              <div className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto">
+              </button>
+              <button className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto ios-button">
                 <ClockIcon className="w-5 h-5 text-white" />
-              </div>
-              <div className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto">
+              </button>
+              <button className="cfz-liquid-glass-button rounded-full w-12 h-12 flex items-center justify-center mx-auto ios-button">
                 <CameraIcon className="w-5 h-5 text-white" />
-              </div>
+              </button>
             </div>
 
             {/* 編輯控制按鈕 */}
             <div className="text-center">
-              <span className="text-white/80 text-xs">Edit Controls</span>
+              <span className="text-white/80 text-xs font-medium">Edit Controls</span>
             </div>
           </div>
         </div>
       </Transition>
+
+      {/* 計算機組件 */}
+      <Calculator 
+        isOpen={calculatorOpen} 
+        onClose={closeCalculator} 
+      />
     </>
   )
 }
 
-export default ControlCenter 
+export default ControlCenter

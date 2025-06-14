@@ -42,7 +42,7 @@ const HomePage: React.FC = () => {
 
   // Close control center when clicking outside on mobile
   const handleMainClick = () => {
-    if (isControlCenterOpen && window.innerWidth < 768) {
+          if (isControlCenterOpen && window.innerWidth < 768) {
       setIsControlCenterOpen(false)
     }
   }
@@ -78,10 +78,9 @@ const HomePage: React.FC = () => {
         >
           {/* 背景圖片 */}
           <div
-            className="absolute inset-0 bg-cover bg-center object-cover w-full h-full"
+            className="absolute inset-0 bg-cover bg-center object-cover w-full h-full responsive-wallpaper"
             style={{
-              backgroundImage:
-                'url(https://images.unsplash.com/photo-1686425374911-e0d752e09806?q=80&w=2093&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
+              filter: 'brightness(0.8) contrast(1.1) saturate(1.2)'
             }}
           />
           {/* macOS Sonoma 風格光暈漸層 */}

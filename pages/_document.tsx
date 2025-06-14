@@ -4,10 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/liquid-glass-like-css@1.0.0/dist/main.css"
-        />
+        {/* 移除 CDN 引用 */}
       </Head>
       <body>
         <Main />

@@ -8,6 +8,343 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
+/* 響應式背景圖片 */
+.responsive-wallpaper {
+  /* 手機版背景 */
+  background-image: url('https://macmagazine.com.br/wp-content/uploads/2025/06/9-iOS-26-wallpaper.jpg');
+}
+
+@media (min-width: 768px) {
+  .responsive-wallpaper {
+    /* 電腦版背景 */
+    background-image: url('https://macmagazine.com.br/wp-content/uploads/2025/06/9-iOS-26-wallpaper-5-scaled.png');
+  }
+}
+
+/* ========== 真實玻璃效果核心樣式 ========== */
+/* 參考現實玻璃的透明度和反射特性 */
+
+/* 真實玻璃基礎效果 */
+.liquid-glass {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 1px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 真實玻璃按鈕效果 */
+.liquid-glass-button {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 1px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass-button:hover {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  backdrop-filter: blur(5px) saturate(200%);
+  -webkit-backdrop-filter: blur(5px) saturate(200%);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.liquid-glass-button:active {
+  transform: translateY(0);
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(3px) saturate(160%);
+  -webkit-backdrop-filter: blur(3px) saturate(160%);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.15);
+}
+
+/* 真實玻璃卡片效果 */
+.liquid-glass-card {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 1px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 真實玻璃面板效果 */
+.liquid-glass-panel {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 1px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 真實玻璃矩形元素 */
+.liquid-glass-rect {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 1px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 真實玻璃杯質感 - 基於物理光學原理 */
+.cfz-liquid-glass-rect {
+  /* 極其細膩的透明背景，模擬真實玻璃的透光性 */
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 25%,
+    rgba(255, 255, 255, 0.02) 75%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  
+  /* 精確的模糊和色彩處理，模擬玻璃的折射 */
+  backdrop-filter: blur(20px) saturate(120%) brightness(102%) contrast(101%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%) brightness(102%) contrast(101%);
+  
+  border-radius: 24px;
+  
+  /* 極細的邊框，模擬玻璃邊緣的高光 */
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  
+  /* 真實玻璃的陰影系統 - 清晰但柔和 */
+  box-shadow: 
+    /* 主要陰影 - 模擬玻璃底部的投影 */
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.04),
+    0 2px 8px rgba(0, 0, 0, 0.02),
+    
+    /* 內部高光 - 模擬玻璃表面的反射 */
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    
+    /* 邊緣高光 - 模擬光線在玻璃邊緣的折射 */
+    inset 1px 0 0 rgba(255, 255, 255, 0.03),
+    inset -1px 0 0 rgba(255, 255, 255, 0.03);
+    
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 頂部高光反射 - 模擬光源在玻璃表面的反射 */
+.cfz-liquid-glass-rect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    transparent 100%
+  );
+  border-radius: 24px 24px 0 0;
+  pointer-events: none;
+}
+
+/* 側邊光澤 - 模擬環境光在玻璃側面的反射 */
+.cfz-liquid-glass-rect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, 
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 30%,
+    rgba(255, 255, 255, 0.04) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.cfz-liquid-glass-rect:hover {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.12) 40%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  backdrop-filter: blur(16px) saturate(220%) brightness(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(220%) brightness(1.15);
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.15),
+    0 6px 24px rgba(0, 0, 0, 0.1),
+    0 3px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* 真實玻璃卡片 - 平面玻璃質感 */
+.cfz-liquid-glass-card {
+  /* 極細膩的透明背景 */
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  
+  /* 適中模糊，保持內容清晰 */
+  backdrop-filter: blur(18px) saturate(118%) brightness(104%) contrast(101%);
+  -webkit-backdrop-filter: blur(18px) saturate(118%) brightness(104%) contrast(101%);
+  
+  border-radius: 16px;
+  
+  /* 極細邊框 */
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  
+  /* 真實玻璃卡片的陰影 */
+  box-shadow: 
+    /* 外部陰影 */
+    0 6px 24px rgba(0, 0, 0, 0.08),
+    0 3px 12px rgba(0, 0, 0, 0.04),
+    0 1px 6px rgba(0, 0, 0, 0.02),
+    
+    /* 內部高光 */
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+    inset 1px 0 0 rgba(255, 255, 255, 0.05),
+    inset -1px 0 0 rgba(255, 255, 255, 0.05);
+    
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 真實玻璃按鈕 - 圓潤玻璃質感 */
+.cfz-liquid-glass-button {
+  /* 極細膩的透明背景 */
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  
+  /* 適中的模糊，保持清晰度 */
+  backdrop-filter: blur(16px) saturate(115%) brightness(103%) contrast(101%);
+  -webkit-backdrop-filter: blur(16px) saturate(115%) brightness(103%) contrast(101%);
+  
+  border-radius: 18px;
+  
+  /* 極細邊框 */
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  
+  /* 真實玻璃按鈕的陰影 */
+  box-shadow: 
+    /* 外部陰影 */
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.03),
+    0 1px 4px rgba(0, 0, 0, 0.02),
+    
+    /* 內部高光 */
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    inset 1px 0 0 rgba(255, 255, 255, 0.04),
+    inset -1px 0 0 rgba(255, 255, 255, 0.04);
+    
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 按鈕頂部高光 */
+.cfz-liquid-glass-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 100%
+  );
+  border-radius: 18px 18px 0 0;
+  pointer-events: none;
+}
+
+/* 圓角變體 */
+.cfz-liquid-glass-rect.rounded-2xl {
+  border-radius: 16px;
+}
+
+.cfz-liquid-glass-rect.rounded-full {
+  border-radius: 50%;
+}
+
 /* 自定義滾動條 */
 ::-webkit-scrollbar {
   width: 8px;
@@ -64,11 +401,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   background: transparent;
 }
 
-input[type="range"]::-webkit-slider-thumb:active {
-  background: transparent;
-}
-
-/* Firefox slider 支援 */
 input[type="range"]::-moz-range-track {
   background: rgba(255, 255, 255, 0.15);
   height: 4px;
@@ -78,13 +410,13 @@ input[type="range"]::-moz-range-track {
 }
 
 input[type="range"]::-moz-range-thumb {
-  appearance: none;
   background: transparent;
   height: 4px;
   width: 0px;
-  border: none;
   border-radius: 0;
+  border: none;
   box-shadow: none;
+  margin-top: 0px;
   cursor: pointer;
 }
 
@@ -92,183 +424,164 @@ input[type="range"]::-moz-range-thumb:hover {
   background: transparent;
 }
 
-/* Edge slider 支援 */
 input[type="range"]::-ms-track {
-  background: rgba(255, 255, 255, 0.15);
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
   height: 4px;
-  border-radius: 2px;
-  border: none;
-  outline: none;
 }
 
 input[type="range"]::-ms-thumb {
-  appearance: none;
   background: transparent;
   height: 4px;
   width: 0px;
   border-radius: 0;
   border: none;
   box-shadow: none;
+  margin-top: 0px;
   cursor: pointer;
 }
 
-/* 防止手機版滾動問題 */
 input[type="range"]:focus {
   outline: none;
 }
 
-/* 控制中心在 RWD 的優化 */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body.overflow-hidden {
+    overflow: hidden;
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 100vh;
   }
 }
 
-/* Liquid Glass 自定義樣式 */
-.liquid-glass-panel {
-  --radius: 24px;
-  --strength: 25px;
-  --expand: 10px;
-  --blur: 3px;
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.liquid-glass-card {
-  --radius: 16px;
-  --strength: 15px;
-  --expand: 6px;
-  --blur: 2px;
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-.liquid-glass-button {
-  --radius: 50px;
-  --strength: 10px;
-  --expand: 4px;
-  --blur: 1px;
-  background-color: rgba(255, 255, 255, 0.12);
-}
-
-/* 控制中心容器的觸控優化 */
 .control-center-container {
-  overflow: hidden;
-  overscroll-behavior: contain;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 50;
 }
 
-/* macOS 風格控制中心樣式 */
 .macos-control-center {
-  background: rgba(40, 40, 50, 0.75);
-  border-radius: 20px;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 
-    0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 8px 20px rgba(0, 0, 0, 0.3),
-    0 2px 5px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 1px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 20px;
+  min-width: 320px;
+  max-width: 360px;
 }
 
-/* macOS 風格內部元素 */
 .macos-control-item {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* macOS 風格圓角按鈕 */
-.macos-button {
-  background: rgba(80, 80, 100, 0.5);
-  border-radius: 50%;
-  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(3px) saturate(160%);
+  -webkit-backdrop-filter: blur(3px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 
-    0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 1px 3px rgba(0, 0, 0, 0.1);
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.15);
 }
 
-/* iOS 風格觸控反饋 */
+.macos-button {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 1px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 12px 20px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
 .ios-button {
-  transition: all 0.15s cubic-bezier(0.4, 0.0, 0.2, 1);
-  transform-origin: center;
+  transition: transform 0.1s ease-in-out;
 }
 
 .ios-button:active {
   transform: scale(0.95);
-  opacity: 0.8;
 }
 
 .ios-button:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
-/* iOS 風格彈性動畫 */
 @keyframes iosSpring {
-  0% { transform: scale(0.9); opacity: 0; }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); opacity: 1; }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 .ios-spring-in {
-  animation: iosSpring 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: iosSpring 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* iOS 風格滑入動畫 */
 @keyframes iosSlideIn {
-  0% { 
-    transform: translateY(100%); 
-    opacity: 0; 
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
   }
-  100% { 
-    transform: translateY(0); 
-    opacity: 1; 
+  60% {
+    opacity: 0.8;
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
 .ios-slide-in {
-  animation: iosSlideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: iosSlideIn 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
-/* 兼容液晶玻璃庫的補充樣式 */
-.cfz-liquid-glass-rect {
-  /* 確保和庫的樣式配合良好 */
-  border-radius: 20px;
-}
-
-/* 卡片變體 */
-.cfz-liquid-glass-card {
-  border-radius: 12px;
-}
-
-/* 按鈕變體 */
-.cfz-liquid-glass-button {
-  border-radius: 50%;
-}
-
-/* 小圓角變體 */
-.cfz-liquid-glass-rect.rounded-2xl {
-  border-radius: 16px;
-}
-
-/* 圓形變體 */
-.cfz-liquid-glass-rect.rounded-full {
-  border-radius: 50%;
-}
-
-/* 避免視覺重疊的調整 */
 .cfz-liquid-glass-rect + .cfz-liquid-glass-rect,
 .cfz-liquid-glass-card + .cfz-liquid-glass-card {
-  margin-top: 2px;
+  margin-top: 8px;
 }
 
-/* 確保在容器內的液體玻璃元素不會產生視覺衝突 */
 .cfz-liquid-glass-rect .cfz-liquid-glass-card,
-.cfz-liquid-glass-rect .cfz-liquid-glass-button {
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+.cfz-liquid-glass-card .cfz-liquid-glass-rect {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(3px) saturate(160%);
+  -webkit-backdrop-filter: blur(3px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.15);
 }
 
-/* iOS 風格進度條動畫 */
 @keyframes progressPulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.7; }
@@ -283,37 +596,1742 @@ input[type="range"]:focus {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  height: 100%;
+  left: -100%;
   width: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
   animation: progressPulse 2s infinite;
 }
 
-/* 手機版專用觸控優化 */
-@media (max-width: 768px) {
+/* 響應式優化 - 平板版過渡效果 */
+@media (min-width: 768px) and (max-width: 1199px) {
   .mobile-touch-optimize {
-    touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
+    touch-action: manipulation;
+  }
+
+  .mobile-button {
+    min-height: 40px;
+    min-width: 40px;
+    touch-action: manipulation;
   }
   
-  /* 增大手機版按鈕點擊區域 */
-  .mobile-button {
-    min-height: 44px;
-    min-width: 44px;
+  /* 平板版 Dock 和控制面板效果 */
+  .microsoft-glass-desktop {
+    backdrop-filter: blur(25px) saturate(125%);
+    -webkit-backdrop-filter: blur(25px) saturate(125%);
+    background: rgba(255, 255, 255, 0.07);
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 12px 48px rgba(0, 0, 0, 0.12),
+      0 6px 24px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 }
 
-/* iOS 風格震動反饋效果 */
+/* 桌面版真實玻璃優化 - 高解析度顯示器專用 */
+@media (min-width: 1200px) {
+  .cfz-liquid-glass-rect {
+    /* 桌面版增強模糊和細節 */
+    backdrop-filter: blur(25px) saturate(125%) brightness(104%) contrast(102%);
+    -webkit-backdrop-filter: blur(25px) saturate(125%) brightness(104%) contrast(102%);
+    
+    /* 更細膩的透明度 */
+    background: linear-gradient(145deg, 
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.015) 25%,
+      rgba(255, 255, 255, 0.025) 75%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    
+    /* 精細邊框 */
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 28px;
+    
+    /* 桌面版陰影系統 */
+    box-shadow: 
+      0 12px 48px rgba(0, 0, 0, 0.1),
+      0 6px 24px rgba(0, 0, 0, 0.06),
+      0 3px 12px rgba(0, 0, 0, 0.03),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+      inset 1px 0 0 rgba(255, 255, 255, 0.04),
+      inset -1px 0 0 rgba(255, 255, 255, 0.04);
+  }
+  
+  .cfz-liquid-glass-button {
+    /* 桌面版按鈕增強 */
+    backdrop-filter: blur(20px) saturate(120%) brightness(105%) contrast(102%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%) brightness(105%) contrast(102%);
+    
+    background: linear-gradient(145deg, 
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.025) 50%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+    
+    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    
+    box-shadow: 
+      0 6px 24px rgba(0, 0, 0, 0.08),
+      0 3px 12px rgba(0, 0, 0, 0.04),
+      0 1px 6px rgba(0, 0, 0, 0.02),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+      inset 1px 0 0 rgba(255, 255, 255, 0.05),
+      inset -1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+  
+  .cfz-liquid-glass-card {
+    /* 桌面版卡片增強 */
+    backdrop-filter: blur(22px) saturate(122%) brightness(106%) contrast(102%);
+    -webkit-backdrop-filter: blur(22px) saturate(122%) brightness(106%) contrast(102%);
+    
+    background: linear-gradient(145deg, 
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.025) 50%,
+      rgba(255, 255, 255, 0.045) 100%
+    );
+    
+    border: 0.5px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 4px 16px rgba(0, 0, 0, 0.05),
+      0 2px 8px rgba(0, 0, 0, 0.03),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+      inset 1px 0 0 rgba(255, 255, 255, 0.06),
+      inset -1px 0 0 rgba(255, 255, 255, 0.06);
+  }
+}
+
 @keyframes hapticFeedback {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-1px); }
-  75% { transform: translateX(1px); }
+  0% { transform: scale(1); }
+  50% { transform: scale(0.98); }
+  100% { transform: scale(1); }
 }
 
 .haptic-feedback {
-  animation: hapticFeedback 0.1s ease-in-out;
-} 
+  animation: hapticFeedback 0.15s ease-in-out;
+}
+
+@keyframes load {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* ========== iOS 風格滑動條優化 ========== */
+
+/* 滑動條整體樣式 */
+input[type="range"].slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  cursor: pointer;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    0 1px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+input[type="range"].slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 2px 6px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+input[type="range"].slider::-webkit-slider-thumb:active {
+  transform: scale(1.05);
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.2),
+    0 1px 3px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+/* ========== 按鈕懸停效果優化 ========== */
+
+.ios-button:hover {
+  transform: scale(1.02);
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ios-button:active {
+  transform: scale(0.98);
+  transition: all 0.1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ========== 玻璃質感按鈕狀態優化 ========== */
+
+/* 真實玻璃按鈕 Hover 效果 */
+.cfz-liquid-glass-button:hover {
+  /* 輕微增加透明度，模擬光線變化 */
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  
+  /* 輕微增強模糊和亮度 */
+  backdrop-filter: blur(20px) saturate(125%) brightness(105%) contrast(102%);
+  -webkit-backdrop-filter: blur(20px) saturate(125%) brightness(105%) contrast(102%);
+  
+  /* 增強邊框高光 */
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
+  
+  /* 增強陰影深度 */
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.1),
+    0 3px 10px rgba(0, 0, 0, 0.05),
+    0 1px 5px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 1px 0 0 rgba(255, 255, 255, 0.06),
+    inset -1px 0 0 rgba(255, 255, 255, 0.06);
+    
+  /* 輕微上浮效果 */
+  transform: translateY(-1px);
+}
+
+/* 真實玻璃按鈕 Active 效果 */
+.cfz-liquid-glass-button:active {
+  /* 輕微減少透明度，模擬按壓 */
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.015) 50%,
+    rgba(255, 255, 255, 0.025) 100%
+  );
+  
+  /* 減少模糊，模擬壓縮效果 */
+  backdrop-filter: blur(14px) saturate(110%) brightness(102%) contrast(101%);
+  -webkit-backdrop-filter: blur(14px) saturate(110%) brightness(102%) contrast(101%);
+  
+  /* 減弱邊框 */
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  
+  /* 減少陰影，模擬按下效果 */
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.04),
+    0 0px 2px rgba(0, 0, 0, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    inset 1px 0 0 rgba(255, 255, 255, 0.03),
+    inset -1px 0 0 rgba(255, 255, 255, 0.03);
+    
+  /* 輕微縮放 */
+  transform: translateY(0) scale(0.98);
+}
+
+/* ========== 卡片懸停效果 ========== */
+
+.cfz-liquid-glass-card:hover {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  backdrop-filter: blur(35px) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(35px) saturate(200%) brightness(1.05);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    0 6px 20px rgba(0, 0, 0, 0.08),
+    0 3px 10px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+/* 微軟風格毛玻璃效果 */
+
+/* 手機版毛玻璃效果 */
+.microsoft-glass-mobile {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 桌面版毛玻璃效果 */
+.microsoft-glass-desktop {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(25px) saturate(130%);
+  -webkit-backdrop-filter: blur(25px) saturate(130%);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 16px 64px rgba(0, 0, 0, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* 側邊欄毛玻璃效果 */
+.microsoft-glass-sidebar {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(15px) saturate(110%);
+  -webkit-backdrop-filter: blur(15px) saturate(110%);
+}
+
+/* 按鈕毛玻璃效果 */
+.microsoft-glass-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.microsoft-glass-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.12),
+    0 3px 10px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.microsoft-glass-button:active {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(0);
+}
+
+/* 卡片毛玻璃效果 */
+.microsoft-glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px) saturate(115%);
+  -webkit-backdrop-filter: blur(10px) saturate(115%);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.microsoft-glass-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* 自然的點擊動畫 */
+@keyframes naturalClick {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.natural-click {
+  animation: naturalClick 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 響應式優化 - 更自然的斷點過渡 */
+@media (max-width: 767px) {
+  /* 手機版專用樣式 */
+  .microsoft-glass-mobile {
+    backdrop-filter: blur(18px) saturate(115%);
+    -webkit-backdrop-filter: blur(18px) saturate(115%);
+  }
+  
+  .microsoft-glass-button {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* 平板版專用樣式 */
+  .microsoft-glass-desktop {
+    backdrop-filter: blur(22px) saturate(125%);
+    -webkit-backdrop-filter: blur(22px) saturate(125%);
+  }
+}
+
+@media (min-width: 1200px) {
+  /* 桌面版專用樣式 */
+  .microsoft-glass-desktop {
+    backdrop-filter: blur(30px) saturate(135%);
+    -webkit-backdrop-filter: blur(30px) saturate(135%);
+  }
+  
+  .microsoft-glass-button:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+/* 平滑的設備切換過渡 */
+@media (prefers-reduced-motion: no-preference) {
+  .microsoft-glass-mobile,
+  .microsoft-glass-desktop,
+  .microsoft-glass-sidebar,
+  .microsoft-glass-button,
+  .microsoft-glass-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* 高對比度模式支持 */
+@media (prefers-contrast: high) {
+  .microsoft-glass-mobile,
+  .microsoft-glass-desktop {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .microsoft-glass-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* 深色模式優化 */
+@media (prefers-color-scheme: dark) {
+  .microsoft-glass-mobile,
+  .microsoft-glass-desktop {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px) saturate(140%);
+    -webkit-backdrop-filter: blur(25px) saturate(140%);
+  }
+}
+
+/* macOS Finder 風格樣式 */
+
+/* 手機版 Finder */
+.macos-finder-mobile {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.15),
+    0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 桌面版 Finder 窗口 */
+.macos-finder-window {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 8px 30px rgba(0, 0, 0, 0.08),
+    0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Finder 側邊欄 */
+.macos-finder-sidebar {
+  background: rgba(245, 245, 247, 0.9);
+  backdrop-filter: blur(15px) saturate(160%);
+  -webkit-backdrop-filter: blur(15px) saturate(160%);
+}
+
+/* Finder 按鈕 */
+.macos-finder-button {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.macos-finder-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
+}
+
+.macos-finder-button:active {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 1px 4px rgba(0, 0, 0, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.02);
+  transform: translateY(0);
+}
+
+/* Finder 項目 */
+.macos-finder-item {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.03),
+    0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.macos-finder-item:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.05),
+    0 2px 5px rgba(0, 0, 0, 0.03);
+  transform: translateY(-1px);
+}
+
+/* 優化的 Overlay 動畫 */
+@keyframes overlayFadeIn {
+  0% { 
+    opacity: 0; 
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+  100% { 
+    opacity: 1; 
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+}
+
+@keyframes overlayFadeOut {
+  0% { 
+    opacity: 1; 
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  100% { 
+    opacity: 0; 
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+}
+
+.overlay-enter {
+  animation: overlayFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.overlay-exit {
+  animation: overlayFadeOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* macOS 風格的滾動條 */
+.macos-finder-window ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.macos-finder-window ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+}
+
+.macos-finder-window ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.macos-finder-window ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* 響應式優化 */
+@media (max-width: 767px) {
+  .macos-finder-mobile {
+    backdrop-filter: blur(15px) saturate(160%);
+    -webkit-backdrop-filter: blur(15px) saturate(160%);
+  }
+  
+  .macos-finder-button {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+  
+  .finder-overlay-container {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .macos-finder-window {
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+  }
+  
+  .finder-window-tablet {
+    max-width: 800px;
+    height: 480px;
+  }
+  
+  .finder-overlay-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .macos-finder-window {
+    backdrop-filter: blur(30px) saturate(190%);
+    -webkit-backdrop-filter: blur(30px) saturate(190%);
+  }
+  
+  .finder-window-centered {
+    max-width: 1400px;
+    height: 700px;
+  }
+  
+  .macos-finder-button:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+/* 高對比度模式支持 */
+@media (prefers-contrast: high) {
+  .macos-finder-window,
+  .macos-finder-mobile {
+    background: rgba(255, 255, 255, 1);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+  }
+  
+  .macos-finder-sidebar {
+    background: rgba(240, 240, 240, 1);
+    border-right: 2px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 減少動畫模式 */
+@media (prefers-reduced-motion: reduce) {
+  .macos-finder-window,
+  .macos-finder-mobile,
+  .macos-finder-sidebar,
+  .macos-finder-button,
+  .macos-finder-item {
+    transition: none;
+    animation: none;
+  }
+}
+
+
+
+/* 玻璃質感 Dock 容器樣式 */
+.glass-dock-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* 玻璃質感圖標 */
+.glass-dock-icon {
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass-dock-icon:hover {
+  transform: scale(1.1) translateY(-2px);
+}
+
+.glass-dock-icon:active {
+  transform: scale(0.95);
+}
+
+/* 大型玻璃質感Dock圖標 - 參考第二張圖片 */
+.large-glass-icon {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(25px) saturate(180%) brightness(105%) contrast(103%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%) brightness(105%) contrast(103%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    0 10px 30px rgba(0, 0, 0, 0.15),
+    0 5px 15px rgba(0, 0, 0, 0.1),
+    inset 0 3px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.large-glass-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.1) 70%,
+    transparent 100%
+  );
+  border-radius: 1.5rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.large-glass-icon::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  height: 45%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.1) 80%,
+    transparent 100%
+  );
+  border-radius: 1.25rem 1.25rem 0.75rem 0.75rem;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* CFZ液體玻璃質感Dock圖標 - 保留向後兼容 */
+.cfz-dock-icon {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.03) 75%,
+    rgba(255, 255, 255, 0.01)
+  );
+  backdrop-filter: blur(20px) saturate(150%) brightness(102%) contrast(101%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%) brightness(102%) contrast(101%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    0 6px 20px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.02);
+}
+
+.cfz-dock-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border-radius: 1.5rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cfz-dock-icon::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 100%
+  );
+  border-radius: 1.25rem 1.25rem 0.5rem 0.5rem;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* 透明玻璃質感圖標 - 保留向後兼容 */
+.transparent-glass-icon {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.25),
+    0 6px 20px rgba(0, 0, 0, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 2px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.transparent-glass-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.3) 30%,
+    rgba(255, 255, 255, 0.1) 70%,
+    transparent 100%
+  );
+  border-radius: 1.5rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.transparent-glass-icon::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.5) 40%,
+    rgba(255, 255, 255, 0.2) 80%,
+    transparent 100%
+  );
+  border-radius: 1.25rem 1.25rem 0.75rem 0.75rem;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* 手機版風格玻璃質感圖標 - 保留向後兼容 */
+.mobile-glass-icon {
+  position: relative;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    0 6px 20px rgba(0, 0, 0, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.mobile-glass-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.05) 70%,
+    transparent 100%
+  );
+  border-radius: 1.5rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.mobile-glass-icon::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(255, 255, 255, 0.1) 80%,
+    transparent 100%
+  );
+  border-radius: 1.25rem 1.25rem 0.75rem 0.75rem;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* 舊的圓角玻璃質感圖標 - 保留向後兼容 */
+.glass-icon {
+  position: relative;
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  border-radius: 1.5rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-icon::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.2) 70%,
+    transparent 100%
+  );
+  border-radius: 1.25rem 1.25rem 0.5rem 0.5rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 點擊動畫效果 */
+@keyframes iconPress {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.85); }
+  100% { transform: scale(1); }
+}
+
+.ios-dock-icon.pressed {
+  animation: iconPress 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 大型玻璃圖標 hover 效果 */
+.large-glass-icon:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.25),
+    0 15px 40px rgba(0, 0, 0, 0.2),
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    inset 0 4px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* CFZ Dock圖標 hover 效果 */
+.cfz-dock-icon:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.06) 75%,
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 16px 50px rgba(0, 0, 0, 0.2),
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 2px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* 響應式優化 */
+@media (max-width: 767px) {
+  .glass-dock-container {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 0.5rem 1.75rem;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      0 4px 16px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    min-width: 300px;
+    width: auto;
+    max-width: 80vw;
+    margin: 0 auto;
+    border-radius: 1.75rem;
+  }
+  
+  .large-glass-icon {
+    backdrop-filter: blur(12px) saturate(150%) brightness(102%) contrast(101%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%) brightness(102%) contrast(101%);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 3px 12px rgba(0, 0, 0, 0.1),
+      0 1px 3px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .cfz-dock-icon {
+    backdrop-filter: blur(15px) saturate(140%) brightness(101%) contrast(100%);
+    -webkit-backdrop-filter: blur(15px) saturate(140%) brightness(101%) contrast(100%);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .glass-dock-container {
+    backdrop-filter: blur(18px) saturate(145%);
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+  }
+  
+  .large-glass-icon {
+    backdrop-filter: blur(22px) saturate(170%) brightness(104%) contrast(102%);
+    -webkit-backdrop-filter: blur(22px) saturate(170%) brightness(104%) contrast(102%);
+  }
+  
+  .cfz-dock-icon {
+    backdrop-filter: blur(18px) saturate(145%) brightness(101.5%) contrast(100.5%);
+    -webkit-backdrop-filter: blur(18px) saturate(145%) brightness(101.5%) contrast(100.5%);
+  }
+}
+
+@media (min-width: 1200px) {
+  .glass-dock-container {
+    backdrop-filter: blur(25px) saturate(160%);
+    -webkit-backdrop-filter: blur(25px) saturate(160%);
+  }
+  
+  .glass-dock-icon:hover {
+    transform: scale(1.15) translateY(-4px);
+  }
+  
+  .large-glass-icon {
+    backdrop-filter: blur(30px) saturate(185%) brightness(106%) contrast(104%);
+    -webkit-backdrop-filter: blur(30px) saturate(185%) brightness(106%) contrast(104%);
+  }
+  
+  .large-glass-icon:hover {
+    transform: scale(1.1) translateY(-3px);
+  }
+  
+  .cfz-dock-icon {
+    backdrop-filter: blur(25px) saturate(155%) brightness(103%) contrast(102%);
+    -webkit-backdrop-filter: blur(25px) saturate(155%) brightness(103%) contrast(102%);
+  }
+  
+  .cfz-dock-icon:hover {
+    transform: scale(1.15) translateY(-4px);
+  }
+}
+
+/* 覆蓋層優化 */
+/* 全新的Finder覆蓋層 - 完全透明 */
+.finder-overlay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 70;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Finder窗口 - 桌面版居中 */
+.finder-window-centered {
+  width: 100%;
+  max-width: 1200px;
+  height: 650px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 8px 30px rgba(0, 0, 0, 0.08),
+    0 2px 10px rgba(0, 0, 0, 0.04);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Finder窗口 - 平板版居中 */
+.finder-window-tablet {
+  width: 100%;
+  max-width: 900px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  box-shadow: 
+    0 15px 45px rgba(0, 0, 0, 0.12),
+    0 6px 25px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 舊的finder-overlay保留向後兼容 */
+.finder-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+  width: 100vw !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 80;
+}
+
+.finder-overlay-enter {
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+.finder-overlay-enter-active {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.finder-overlay-exit {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.finder-overlay-exit-active {
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+/* 縮放動畫優化 */
+@keyframes finderScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.05);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes finderScaleOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  40% {
+    opacity: 0.8;
+    transform: scale(1.05);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+    filter: blur(4px);
+  }
+}
+
+.finder-scale-enter {
+  animation: finderScaleIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.finder-scale-exit {
+  animation: finderScaleOut 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+}
+
+/* 高對比度模式支持 */
+@media (prefers-contrast: high) {
+  .glass-dock-container {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  
+  .large-glass-icon {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  
+  .cfz-dock-icon {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* 減少動畫模式 */
+@media (prefers-reduced-motion: reduce) {
+  .glass-dock-icon,
+  .glass-dock-container,
+  .large-glass-icon,
+  .cfz-dock-icon,
+  .finder-overlay {
+    transition: none;
+    animation: none;
+  }
+  
+  .glass-dock-icon:hover,
+  .large-glass-icon:hover,
+  .cfz-dock-icon:hover {
+    transform: none;
+  }
+}
+
+/* 精細玻璃質感效果 - 更符合macOS風格 */
+.large-glass-icon {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    0 1px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.large-glass-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.large-glass-icon::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.large-glass-icon:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .large-glass-icon {
+    backdrop-filter: blur(12px) saturate(160%);
+    box-shadow: 
+      0 3px 12px rgba(0, 0, 0, 0.12),
+      0 1px 3px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* 高對比度模式支援 */
+@media (prefers-contrast: high) {
+  .large-glass-icon {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* 減少動畫效果模式 */
+@media (prefers-reduced-motion: reduce) {
+  .large-glass-icon {
+    transition: none;
+  }
+  
+  .large-glass-icon:hover {
+    transform: none;
+  }
+}
+
+/* 手機版finder-overlay特殊處理 */
+@media (max-width: 767px) {
+  .finder-overlay {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    z-index: 90;
+  }
+}
+
+/* 減少動畫效果模式 */
+@media (prefers-reduced-motion: reduce) {
+  .large-glass-icon {
+    transition: none;
+  }
+  
+  .large-glass-icon:hover {
+    transform: none;
+  }
+}
+
+/* 計算機組件樣式 */
+.calculator-overlay {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  z-index: 90;
+}
+
+.calculator-overlay-container {
+  background: transparent;
+  z-index: 80;
+  padding: 2rem;
+}
+
+.calculator-mobile {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+}
+
+.calculator-window-centered {
+  width: 400px;
+  max-width: 90vw;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calculator-btn {
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.calculator-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+.calculator-btn:active {
+  transform: scale(0.95);
+}
+
+.calculator-btn.col-span-2 {
+  border-radius: 30px;
+}
+
+.calculator-btn.row-span-2 {
+  height: 128px;
+  border-radius: 30px;
+}
+
+.calculator-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.calculator-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.calculator-button:active {
+  transform: scale(0.95);
+}
+
+/* 手機版計算機優化 */
+@media (max-width: 767px) {
+  .calculator-overlay {
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  
+  .calculator-btn {
+    height: 70px;
+    font-size: 1.75rem;
+  }
+  
+  .calculator-btn.row-span-2 {
+    height: 148px;
+  }
+}
+
+/* 平板版計算機 */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .calculator-window-centered {
+    width: 350px;
+  }
+  
+  .calculator-btn {
+    height: 55px;
+    font-size: 1.25rem;
+  }
+  
+  .calculator-btn.row-span-2 {
+    height: 118px;
+  }
+}
+
+/* 高對比度模式支援 */
+@media (prefers-contrast: high) {
+  .calculator-overlay,
+  .calculator-mobile,
+  .calculator-window-centered {
+    background: rgba(0, 0, 0, 1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .calculator-btn {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* 減少動畫模式 */
+@media (prefers-reduced-motion: reduce) {
+  .calculator-btn,
+  .calculator-button,
+  .calculator-overlay,
+  .calculator-mobile,
+  .calculator-window-centered {
+    transition: none;
+    animation: none;
+  }
+  
+  .calculator-btn:hover,
+  .calculator-button:hover {
+    transform: none;
+  }
+}
+
+/* Calculator Styles */
+.calculator-overlay-mobile {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.calculator-overlay-container {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+
+.calculator-close-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.calculator-close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.calculator-close-button:active {
+  transform: scale(0.95);
+}
+
+/* macOS Calculator Button Styles */
+.macos-calc-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  transform-origin: center center;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+.macos-calc-btn span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.macos-calc-btn:active {
+  transform: scale(0.92);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* macOS Calculator Number Buttons */
+.macos-calc-number {
+  background: linear-gradient(145deg, #505050, #404040);
+  color: white;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.macos-calc-number:hover {
+  background: linear-gradient(145deg, #606060, #505050);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.macos-calc-number:active {
+  background: linear-gradient(145deg, #404040, #303030);
+  box-shadow: 
+    0 1px 4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: scale(0.92);
+}
+
+/* macOS Calculator Function Buttons (C, +/-, %) */
+.macos-calc-function {
+  background: linear-gradient(145deg, #a6a6a6, #969696);
+  color: black;
+  font-weight: 500;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.macos-calc-function:hover {
+  background: linear-gradient(145deg, #b6b6b6, #a6a6a6);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.macos-calc-function:active {
+  background: linear-gradient(145deg, #969696, #868686);
+  box-shadow: 
+    0 1px 4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: scale(0.92);
+}
+
+/* macOS Calculator Operator Buttons */
+.macos-calc-operator {
+  background: linear-gradient(145deg, #ff9f0a, #ff8c00);
+  color: white;
+  font-weight: 500;
+  box-shadow: 
+    0 2px 8px rgba(255, 140, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.macos-calc-operator:hover {
+  background: linear-gradient(145deg, #ffaf1a, #ff9f0a);
+  box-shadow: 
+    0 4px 12px rgba(255, 140, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.macos-calc-operator:active {
+  background: linear-gradient(145deg, #ff8c00, #e67c00);
+  box-shadow: 
+    0 1px 4px rgba(255, 140, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: scale(0.92);
+}
+
+/* Zero button special styling - 橢圓形，跨兩列 */
+.macos-calc-zero {
+  grid-column: span 2;
+  width: auto;
+  border-radius: 30px !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+.macos-calc-zero span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Equals button special styling - 保持圓形 */
+.macos-calc-equals {
+  width: 60px;
+  height: 60px;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  flex-shrink: 0;
+}
+
+.macos-calc-equals span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.macos-calc-equals:active {
+  transform: scale(0.92);
+}
+
+/* Calculator window transform origin fix */
+.calculator-window-macos {
+  width: 320px;
+  background: linear-gradient(135deg, rgba(55, 65, 81, 0.95), rgba(31, 41, 55, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform-origin: center center;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  will-change: transform, opacity;
+}
+
+.calculator-mobile {
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.95), rgba(20, 20, 20, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform-origin: center center;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  will-change: transform, opacity;
+}
+
+/* 計算機動畫 */
+@keyframes calculatorFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.calculator-animate-in {
+  animation: calculatorFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  .macos-calc-btn {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+  
+  .macos-calc-zero {
+    height: 70px;
+    grid-column: span 2;
+  }
+  
+  .macos-calc-equals {
+    width: 70px;
+    height: 70px;
+    grid-column: span 1;
+  }
+}

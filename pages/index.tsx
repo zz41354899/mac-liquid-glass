@@ -17,6 +17,8 @@ const HomePage: React.FC = () => {
     return () => clearTimeout(timer)
   }, [])
 
+
+
   const toggleControlCenter = () => {
     setIsControlCenterOpen(!isControlCenterOpen)
   }
@@ -39,15 +41,15 @@ const HomePage: React.FC = () => {
         <main 
           className="relative min-h-screen overflow-hidden opacity-100 transition-opacity duration-1000 ease-out"
         >
-          {/* 背景圖片 */}
+          {/* 背景圖片 - 響應式背景 */}
           <div 
-            className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat object-cover w-full h-full backdrop-blur-md"
+            className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat object-cover w-full h-full responsive-wallpaper"
             style={{
-              backgroundImage: 'url(./bg.jpg)'
+              filter: 'brightness(0.8) contrast(1.1) saturate(1.2)'
             }}
           />
 
-          {/* macOS Sonoma 風格光暈漸層 */}
+          {/* macOS Sonoma 風格光暈漸層 - 靜態 */}
           <div className="absolute inset-0 bg-gradient-to-tr from-[#f0f8ff]/30 via-transparent to-[#fff1e6]/20 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/10 pointer-events-none" />
 
@@ -56,8 +58,10 @@ const HomePage: React.FC = () => {
             <HeaderBar onToggleControlCenter={toggleControlCenter} />
             <DesktopIcons isControlCenterOpen={isControlCenterOpen} />
             <ControlCenter isOpen={isControlCenterOpen} onClose={closeControlCenter} />
-            <Dock />
+            <Dock onControlCenterToggle={toggleControlCenter} />
           </div>
+
+
         </main>
       ) : (
         // 🖥️ 開機畫面
